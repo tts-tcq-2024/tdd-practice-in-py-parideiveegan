@@ -1,3 +1,3 @@
-def StringCalculator(inputstring):
+def AddStringCalculator(inputstring):
   return 0 
   
