@@ -28,7 +28,7 @@ jobs:
         
       - name: Run and collect coverage
         run: |
-          coverage run --branch StringCalculatorTest.py
+          coverage run --branch StringCalculator.test.py
           coverage html
           coverage report
       - name: Upload coverage
