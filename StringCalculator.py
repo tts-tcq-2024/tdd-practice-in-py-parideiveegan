@@ -1,3 +1,3 @@
 def AddStringCalculator(inputstring):
-  return 234 
+  return "fail" 
   
