@@ -5,7 +5,7 @@ class TestStringCalculator(unittest.TestCase):
         def RetrunsZeroForEmptyStringInput(self):
                 self.assertEqual(AddStringCalculator(""), 0)                
         def ReturnsSumOfTwoNumbersSeparatedByCommaFormInputString(self):
-                self.assertEqual(AddStringCalculator("5,10"), 15)        
+                self.assertEqual(AddStringCalculator("10,10"), 20)        
         def ReturnsSumOfMultipleNumbersSeparatedByCommaFromInputString(self):
                 self.assertEqual(AddStringCalculator("10,10,2,5"), 27)
         def ReturnsSumOfNumbersSeparatedByNewlineCommaFormInputString(self):
