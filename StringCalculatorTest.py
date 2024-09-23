@@ -2,7 +2,7 @@ import unittest
 from StringCalculator import AddStringCalculator
 class TestStringCalculator(unittest.TestCase):
         
-        def RetrunsZeroForEmptyStringInput(self):
+        def Test_RetrunsZeroForEmptyStringInput(self):
                 self.assertEqual(AddStringCalculator(""), 0)                
         def ReturnsSumOfTwoNumbersSeparatedByCommaFormInputString(self):
                 self.assertEqual(AddStringCalculator("10,10"), 20)        
