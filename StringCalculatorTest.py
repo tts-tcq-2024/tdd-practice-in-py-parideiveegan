@@ -4,17 +4,17 @@ class TestStringCalculator(unittest.TestCase):
         
         def test_RetrunsZeroForEmptyStringInput(self):
                 self.assertEqual(AddStringCalculator(""), 0)                
-        def ReturnsSumOfTwoNumbersSeparatedByCommaFormInputString(self):
+        def test_ReturnsSumOfTwoNumbersSeparatedByCommaFormInputString(self):
                 self.assertEqual(AddStringCalculator("10,10"), 20)        
-        def ReturnsSumOfMultipleNumbersSeparatedByCommaFromInputString(self):
+        def test_ReturnsSumOfMultipleNumbersSeparatedByCommaFromInputString(self):
                 self.assertEqual(AddStringCalculator("10,10,2,5"), 27)
-        def ReturnsSumOfNumbersSeparatedByNewlineCommaFormInputString(self):
+        def test_ReturnsSumOfNumbersSeparatedByNewlineCommaFormInputString(self):
                 self.assertEqual(AddStringCalculator("10\n10,2\n1"), 23)
-        def ReturnsSumOfNumbersSeparatedByAnyDelimitersUserSetsFormInputString(self):
+        def test_ReturnsSumOfNumbersSeparatedByAnyDelimitersUserSetsFormInputString(self):
                 self.assertEqual(AddStringCalculator("//?\n2?2,2\n2,2"), 10)
-        def ThrowsExceptionMessageIfNegativeNumbersInTheInputString(self):
+        def test_ThrowsExceptionMessageIfNegativeNumbersInTheInputString(self):
                 self.assertEqual(AddStringCalculator("-1,6,-22"),"negatives not allowed : -1,-22")
-        def ReturnsSumOfNumbersButIgnoreNumbersGreaterThan1000InTheInputString(self):
+        def test_ReturnsSumOfNumbersButIgnoreNumbersGreaterThan1000InTheInputString(self):
                 self.assertEqual(AddStringCalculator("1,34534"), 1)
 
 
