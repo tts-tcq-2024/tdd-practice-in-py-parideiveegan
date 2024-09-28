@@ -55,8 +55,11 @@ def get_sum(numbers,inputstring):
     total_sum = 0
     index = 0
     while index <= len(numbers)-1:
+        
         number = numbers[index]
-        total_sum += ConvertToNumber(number,inputstring)
+        integer = ConvertToNumber(number,inputstring)
+        if integer <= 1000:
+            total_sum += ConvertToNumber(number,inputstring)
         index+=1
     return total_sum
 
