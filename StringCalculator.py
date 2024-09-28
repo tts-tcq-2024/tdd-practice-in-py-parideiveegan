@@ -7,37 +7,65 @@ def check_for_new_delimiter(inputstring, separators):
         delimiter +=inputstring[index]
         index +=1
     separators.append(delimiter)
-    return [separators,index]
-
-def check_append(inputstring, index):
-    number_found = 0
-    delimiter = ''
-    while not number_found:
-        if inputstring[index]
-
-def get_numbers(inputstring, separators):
+    return separators
     
-    refactored_inputstring = inputstring
-    delimiter = ''
-    number = ''
+def get_digit_index(inputstring):
+    index_list = []
     index = 0
-    result = []
-    numbers = []
     while index <= len(inputstring)-1:
-        result = check_append(inputstring,index)
-        index = result[0]
-        number +=inputstring[index]
-        if result[1]:
-            numbers.append(number)
-            number = ''
+        if 48<= ord(inputstring[index]) <= 57 :
+            index_list.append(index)
+        index +=1
+    return index_list    
+
+def check_delimiter(tail_pointer,head_pointer,separators,inputstring):
+    delimiter_start = tail_pointer+1
+    delimiter_end = head_pointer
+    delimiter = inputstring[delimiter_start:delimiter_end]
+    return delimiter not in separators
+               
+def get_numbers(inputstring, separators):
+    digit_index = get_digit_index(inputstring)
+    head_pointer = 1
+    tail_pointer = 0
+    digit = [digit_index[0]]
+    numbers = []
+    while head_pointer <= len(digit_index)-1:
+        if check_delimiter(digit_index[tail_pointer],digit_index[head_pointer],separators,inputstring):
+            digit.append(digit_index[head_pointer])
+            tail_pointer = head_pointer
+            head_pointer +=1
+            continue
+        numbers.append(digit)
+        tail_pointer = head_pointer
+        digit = [digit_index[tail_pointer]]
+        head_pointer +=1
+        
+    numbers.append(digit)    
+    return numbers
+
+def ConvertToNumber(number,inputstring):
+    converted_number = 0
+    for index in number:
+        value = ord(inputstring[index]) - ord('0')
+        converted_number = value + (converted_number*10)
+    return converted_number
+    
+def get_sum(numbers,inputstring):
+    total_sum = 0
+    index = 0
+    while index <= len(numbers)-1:
+        number = numbers[index]
+        total_sum += ConvertToNumber(number,inputstring)
+        index+=1
+    return total_sum
 
 def AddStringCalculator(inputstring):
-   if not inputstring:
+    if not inputstring:
       return 0
-   separators = ['\n',',']
-   changes = check_for_new_delimiter(inputstring,separators)
-   separators = changes[0]
-   inputstring = inputstring[(changes[1]+1):]
-
-   numbers = get_numbers(inputstring, separators)
-   
+    separators = ['\n',',']
+    separators = check_for_new_delimiter(inputstring,separators)
+    numbers = get_numbers(inputstring, separators)
+  
+    total_sum = get_sum(numbers,inputstring)
+    return (total_sum)
