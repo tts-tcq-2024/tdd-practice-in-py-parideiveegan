@@ -12,10 +12,11 @@ class TestStringCalculator(unittest.TestCase):
                 self.assertEqual(AddStringCalculator("10\n10,2\n1"), 23)
         def test_ReturnsSumOfNumbersSeparatedByAnyDelimitersUserSetsFormInputString(self):
                 self.assertEqual(AddStringCalculator("//?\n2?2,2\n2,2"), 10)
-        def test_ThrowsExceptionMessageIfNegativeNumbersInTheInputString(self):
-                self.assertEqual(AddStringCalculator("-1,6,-22"),"negatives not allowed : -1,-22")
         def test_ReturnsSumOfNumbersButIgnoreNumbersGreaterThan1000InTheInputString(self):
                 self.assertEqual(AddStringCalculator("1,34534"), 1)
+        def test_ThrowsExceptionMessageIfNegativeNumbersInTheInputString(self):
+                self.assertEqual(AddStringCalculator("-1,6,-22"),"negatives not allowed : -1,-22")
+
 
 
 
