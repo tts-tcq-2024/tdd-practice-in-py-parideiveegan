@@ -1,0 +1,50 @@
+S.NO,Teset case ID,Test case name,Objective,Input,Excpted output
+1,TST_ID_1_0,Retrun Zero for empty string input ,"To enusre the StringCalaculaotor function handels empty string inputs
+Ensure that the function returns 0 for empty string inputs","Empty string as an input
+
+input : """"","Returns Zero
+
+0"
+2,TST_ID_2_0,Returns sum of two numbers seprated by comma from the input string,"To enusre the StringCalaculaotor function returns sum of two numbers in the  input string which are seprated by commas.
+
+Ensure that the function returns sum in integer and handels the input in the string seprated by comma","String with two numbers seprated by comma
+
+input : ""10,10""","Retruns sum of Two numbers in the stirng.
+
+Output: 20"
+3,TST_ID_3_0,Returns sum of multiple numbers seprated by comma from the input string,"To enusre the StringCalaculaotor function able to sum more then two numbers in the  input string which are seprated by commas.
+
+Ensure that multiple numbers are considered and returns sum of all and handels the input in the string seprated by comma","String with multiple numbers seprated by comma
+
+input : ""10,10,2,5""","Retruns sum of multiple numbers in the stirng.
+
+Output: 27"
+4,TST_ID_4_0,Returns sum of numbers seprated by \n coma form the input string,"To enusre the StringCalaculaotor function able to sum numbers in the  input string which are seprated by Newline ""\n"" and comma.
+
+Ensure that numbers are considered when \n is used for sepration and returns sum of all and handels the input in the string. ","String with multiple numbers seprated by comma
+
+input : ""10\n10,2\n1""","Retruns sum of multiple numbers in the stirng.
+
+Output: 23"
+5,TST_ID_5_0,Returns sum of numbers seprated by defult and delimiters user sets form the input string,"To enusre the StringCalaculaotor function able to set a delimeter for the sepreation and consider the numbers for sum in the input string which are seprated by mix of delimiters.
+
+Ensure that syndex for delimeter setting is correct and numbers are considered and returns sum of all and handels the input in the string seprated by seprated by mix of delimiters.","String with syndex to set delimiters and with multiple numbers seprated by mix of delimiters
+
+input : “//?\n2?2,2\n2,2”","Retruns sum of multiple numbers in the stirng.
+
+Output: 10"
+6,TST_ID_5_0,Throws excpetion message if negtaive numbers in the input string,"To enusre the StringCalaculaotor function able to detect negative numbers and thorows an excpetion message and also include the negative numbers in message
+
+Ensure that function throw an exception “negatives not allowed” - and the negative that was passed. if there are multiple negatives, show all of them in the exception message.","String with negative numbers seprated by delimiters
+
+input : “-1,6,-22”","Throws an exception 
+
+""negatives not allowed : -1,-22"" "
+7,TST_ID_6_0,Returns sum of numbers but ignore numbers greater then 1000 in the input string,"To enusre the StringCalaculaotor function able to ignore numbers greater then 1000 and returns sum of other numbers in the input string which are seprated by any delimiters.
+
+","String with numbers greater then 100-
+
+input : “1,34534”","Retruns sum of multiple numbers in the stirng.
+
+""negatives not allowed : 1"" "
+,,,,,

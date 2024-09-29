@@ -1,25 +1,23 @@
 import unittest
-from StringCalculator import add
+from StringCalculator import AddStringCalculator
 class TestStringCalculator(unittest.TestCase):
         
-        def test_expectZeroForEmptyInput(self):
-                self.assertEqual(add(""), 0)
-                
-        def test_expectZeroForSingleZero(self):
-                self.assertEqual(add("0"), 0)
-                
-        def test_expectSumForTwoNumberst(self):
-                self.assertEqual(add("1,2"), 3)
-                
-        def test_ignoreNumbersGreaterThan1000(self):
-                self.assertEqual(add("1,1001"), 1)
-                
-        def test_expectSumWithCustomDelimiter(self):
-                self.assertEqual(add("//;\n1;2"), 3)
-                
-        def test_expectSumWithNewlineDelimiter(self):
-                self.assertEqual(add("1\n2,3"),6);
-        
+        def test_RetrunsZeroForEmptyStringInput(self):
+                self.assertEqual(AddStringCalculator(""), 0)                
+        def test_ReturnsSumOfTwoNumbersSeparatedByCommaFormInputString(self):
+                self.assertEqual(AddStringCalculator("10,10"), 20)        
+        def test_ReturnsSumOfMultipleNumbersSeparatedByCommaFromInputString(self):
+                self.assertEqual(AddStringCalculator("10,10,2,5"), 27)
+        def test_ReturnsSumOfNumbersSeparatedByNewlineCommaFormInputString(self):
+                self.assertEqual(AddStringCalculator("10\n10,2\n1"), 23)
+        def test_ReturnsSumOfNumbersSeparatedByAnyDelimitersUserSetsFormInputString(self):
+                self.assertEqual(AddStringCalculator("//?\n2?2,2\n2,2"), 10)
+        def test_ReturnsSumOfNumbersButIgnoreNumbersGreaterThan1000InTheInputString(self):
+                self.assertEqual(AddStringCalculator("1,34534"), 1)
+        def test_ThrowsExceptionMessageIfNegativeNumbersInTheInputString(self):
+                with self.assertRaises(Exception):
+                        AddStringCalculator("-1,6,-22")
+
 
 
 
