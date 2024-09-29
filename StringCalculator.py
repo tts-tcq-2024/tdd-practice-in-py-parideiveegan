@@ -7,6 +7,8 @@ def check_for_new_delimiter(inputstring, separators):
         delimiter +=inputstring[index]
         index +=1
     separators.append(delimiter)
+    delimiter = separators[-1]+'-1'
+    separators.append(delimiter)
     return separators
     
 def get_digit_index(inputstring):
@@ -50,13 +52,39 @@ def ConvertToNumber(number,inputstring):
         value = ord(inputstring[index]) - ord('0')
         converted_number = value + (converted_number*10)
     return converted_number
+
+def check_negative(numbers,inputstring):
+    index = 0
+    negative_numbers = []
+    number = []
+    while index <= len(numbers)-1:        
+        number = numbers[index]
+        minus_index = inputstring[number[0]-1]
+        if minus_index == '-':
+            negative_numbers.append(number)
+        index +=1
+    return negative_numbers
+    
+def check_exception(negative_numbers,inputstring):
+    
+    if negative_numbers:
+        statement = "negatives not allowed : "
+        index = 0
+        number = 0
+        while index<= len(negative_numbers)-1:
+            number = ConvertToNumber(negative_numbers[index],inputstring)
+            statement += (" -"+str(number))
+            index +=1
+            
+        raise Exception(statement)
     
 def get_sum(numbers,inputstring):
     total_sum = 0
     index = 0
-    while index <= len(numbers)-1:
-        
-        number = numbers[index]
+    negative_numbers = check_negative(numbers,inputstring)
+    check_exception(negative_numbers,inputstring)
+    while index <= len(numbers)-1:        
+        number = numbers[index]        
         integer = ConvertToNumber(number,inputstring)
         if integer <= 1000:
             total_sum += ConvertToNumber(number,inputstring)
@@ -66,9 +94,8 @@ def get_sum(numbers,inputstring):
 def AddStringCalculator(inputstring):
     if not inputstring:
       return 0
-    separators = ['\n',',']
+    separators = ['\n',',',',-','\n-']
     separators = check_for_new_delimiter(inputstring,separators)
     numbers = get_numbers(inputstring, separators)
-  
     total_sum = get_sum(numbers,inputstring)
     return (total_sum)
