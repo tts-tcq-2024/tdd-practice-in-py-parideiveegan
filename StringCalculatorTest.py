@@ -15,7 +15,7 @@ class TestStringCalculator(unittest.TestCase):
         def test_ReturnsSumOfNumbersButIgnoreNumbersGreaterThan1000InTheInputString(self):
                 self.assertEqual(AddStringCalculator("1,34534"), 1)
         def test_ThrowsExceptionMessageIfNegativeNumbersInTheInputString(self):
-                self.assertRaises(Exception):
+                with self.assertRaises(Exception):
                         AddStringCalculator("-1,6,-22")
 
 
